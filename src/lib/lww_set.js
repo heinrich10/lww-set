@@ -19,7 +19,7 @@ class LwwSet {
 	 * @param {number} time timestamp in ms
 	 */
 	add(element, time) {
-		this.addSet[element] = time;
+		this.addSet[element.toString()] = time;
 	}
 
 	/**
@@ -29,7 +29,7 @@ class LwwSet {
 	 * @param {number} time timestamp in ms
 	 */
 	remove(element, time) {
-		this.removeSet[element] = time;
+		this.removeSet[element.toString()] = time;
 	}
 
 	/**
@@ -39,7 +39,7 @@ class LwwSet {
 	 * @return {boolean}
 	 */
 	exist(element) {
-		return getLatest(this.addSet, this.removeSet, element);
+		return getLatest(this.addSet, this.removeSet, element.toString());
 	}
 
 	/**
@@ -50,8 +50,9 @@ class LwwSet {
 	 get() {
 		 const returnValue = [];
 		 for (let value in this.addSet) {
-			 if(getLatest(this.addSet, this.removeSet, value)) {
-				 returnValue.push(value);
+			 const v = value.toString();
+			 if(getLatest(this.addSet, this.removeSet, v)) {
+				 returnValue.push(v);
 			 }
 		 }
 		 return returnValue;
