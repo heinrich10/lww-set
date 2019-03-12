@@ -1,6 +1,6 @@
 # lww-set
 
-A simple implementation of LWW-Element-Set
+A simple javascript implementation of LWW-Element-Set
 
 # Usage
 
