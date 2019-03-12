@@ -1,5 +1,5 @@
 
-const { isLatest } = require('../utils/index');
+const { isLatest } = require('../utils/');
 
 class LwwSet {
   /**
